@@ -1,6 +1,8 @@
 import Home from './page/Home';
 import SignIn from './page/Login';
 import SignUp from './page/Register';
+import User from './page/User';
+
 export const routes = [
     {
         path:'/',
@@ -20,4 +22,13 @@ export const routes = [
         name: 'Sign up',
         exact: false,
     },
+    {
+        path: '/user',
+        component: User,
+        name: 'User',
+        exact:false,
+
+    }
+
+   
 ]

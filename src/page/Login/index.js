@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import {Link, useHistory } from 'react-router-dom';
+import { useDispatch} from 'react-redux'
 import { login } from '../../features/auth/authSlice';
 
 const SignIn = () => {
@@ -11,9 +11,12 @@ const SignIn = () => {
     })
 
     const dispatch = useDispatch()
+    const history  = useHistory()
 
     const handleSigIn = () => {
         dispatch(login({ user: prams }))
+        history.push('/user')
+        
     }
     const handleChange = (event) =>{
         const { name, value } = event.target;
@@ -41,7 +44,7 @@ const SignIn = () => {
             value={prams.password}
             />
             <div className='form-group'>
-                <button type='button' onClick={handleSigIn}>Sign In</button>
+             <button type='button' onClick={handleSigIn}>Sign In</button>
             </div>
         </form>
         

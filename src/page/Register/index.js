@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './style.css';
-import { register} from '../../features/auth/authSlice';
+import { register,signup} from '../../features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
