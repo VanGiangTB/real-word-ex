@@ -15,12 +15,14 @@ export const routes = [
         component: SignIn,
         name: 'Sign in',
         exact: false,
+        requiredAuth: false
     },
     {
         path:'/signup',
         component: SignUp,
         name: 'Sign up',
         exact: false,
+        requiredAuth: false
     },
     {
         path: '/user',

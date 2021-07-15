@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    user: null
+    user: null,
+    userInfo: null
 }
 
 const authSlice = createSlice({
@@ -14,7 +15,8 @@ const authSlice = createSlice({
             // debugger
             // console.log("redux", actions.payload);
             state.user = actions.payload
-            localStorage.set('token', actions.payload.token)
+            localStorage.setItem('jwt', actions.payload.token)
+            localStorage.setItem('username', actions.payload.username)
         },
         // signin(state,actions){
             
@@ -26,6 +28,8 @@ const authSlice = createSlice({
         },
         registerSuccess(state, actions) {
             state.user = actions.payload
+            localStorage.setItem('jwt', actions.payload.token)
+            localStorage.setItem('username', actions.payload.username)
         },
         // signup(state,actions){
 
@@ -33,10 +37,13 @@ const authSlice = createSlice({
         // signupSuccess(state,actions){
         //     state.user = actions.payload
         // },
-
+        getUserInfoRequest() {},
+        getUserInfoSuccess(state, actions) {
+            state.userInfo = actions.payload
+        },
 
      }
 })
 
-export const { login, register, registerSuccess, loginSuccess } = authSlice.actions
+export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest } = authSlice.actions
 export default authSlice.reducer

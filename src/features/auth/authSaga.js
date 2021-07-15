@@ -1,5 +1,5 @@
 import { call, put, takeLatest, takeEvery } from "redux-saga/effects";
-import { login,register,signin,signup, registerSuccess, loginSuccess,signupSuccess,signinSuccess } from "./authSlice";
+import { login,register, registerSuccess, loginSuccess, getUserInfoRequest, getUserInfoSuccess} from "./authSlice";
 import API from "./authApi"
 
 function* handleLoginSaga(action) {
@@ -31,19 +31,20 @@ function* handleRegisterSaga(action) {
         console.log(error);
     }
 }
-// function* handleSignupSaga() {
-//     try {
-//         const res = yield call(API.signup)
-//         yield call(signupSuccess(res.user))
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+function* handleGetuserInfoSaga(action) {
+    try {
+        const res = yield call(API.getUserInfo, action.payload)
+        //dispatch action
+        yield put(getUserInfoSuccess(res.profile))
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export default function* authSaga() {
     
     yield takeLatest(login.toString(), handleLoginSaga)
     yield takeLatest(register.toString(), handleRegisterSaga)
-    // yield takeLatest(signin.toString(), handleSigninSaga)
+    yield takeLatest(getUserInfoRequest.toString(), handleGetuserInfoSaga)
     // yield takeLatest(signup.toString(), handleSignupSaga)
 }

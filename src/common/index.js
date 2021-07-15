@@ -3,6 +3,13 @@ import { routes } from '../routes';
 import {Link} from 'react-router-dom';
 import './style.css'
 export default function NavBar() {
+
+    const handleRedirec = () => {
+        const token = localStorage.getItem("jwt");
+        if (!token) return false;
+        return true;
+      };
+
     return (
         <header className='navbar container'>
            <a href="/home" className='navbar-title-link'> <h3 className= 'navbar-title' >Conduit</h3> </a>
