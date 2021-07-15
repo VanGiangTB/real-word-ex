@@ -1,0 +1,17 @@
+.home-header {
+    background-color: #5cb85c;
+    text-align: center;
+    padding: 20px 0px;
+    height: auto;
+
+}
+
+.home-header h1, .home-header p {
+    color: white;
+}
+.home-header h1{
+    font-size: 7vh;
+}
+.home-header p{
+    font-size: 3vh;
+}

@@ -1,0 +1,33 @@
+.container{
+    width: 980px;
+    margin: auto;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: blueviolet; */
+}
+.navbar-title-link{
+    text-decoration: none;
+}
+
+.navbar-title-link .navbar-title{
+    font-size: 1.5rem;
+    color: #5cb85c;
+
+}
+.link{
+    color: rgba(0,0,0,.3);
+    text-decoration: none;
+}
+.navbar-menu .navbar-link{
+    padding-left: 15px;
+}
+.link:hover{
+    color: rgba(0,0,0,.6);
+}
+.navbar-link:focus{
+    color: rgba(0,0,0,.6);
+}

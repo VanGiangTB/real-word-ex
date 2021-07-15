@@ -1,0 +1,54 @@
+.sign-up, .sign-in {
+    margin: auto;
+    text-align: center;
+}
+
+.form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.form-control {
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid #65686b;
+}
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid #62abe7;
+}
+
+.question {
+    color: #67d467;
+    text-decoration: none;
+}
+.question:hover{
+    color: #58b358;
+}
+.errorMessage{
+    color: #b85c5c;
+    /* text-align: center; */
+    text-align: left;
+    margin-left: 300px;
+    
+}
+.form-group button {
+    float: right;
+    margin-top: 10px;
+    background-color: #60b960;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border-color: #60b960;
+    box-shadow: none;
+}
+.form-group button:hover{
+    background-color: #449d44;
+}
