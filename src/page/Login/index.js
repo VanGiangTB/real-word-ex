@@ -8,7 +8,7 @@ const SignIn = () => {
     const dispatch = useDispatch()
     const history  = useHistory()
     const isMiss = useSelector(state => state.auth.isMiss)
-
+    const [errorMessage, setErrorMessage] = useState('')
     const [prams, setPrams] = useState({
         email:'',
         password:'',
@@ -28,6 +28,11 @@ const SignIn = () => {
         // if(isMiss === true){
         //     history.push('/user')
         // }
+        if(isMiss === false){
+            setErrorMessage('Account not registered')
+        }else{
+            setErrorMessage('')
+        }
 
         
     }
@@ -40,6 +45,7 @@ const SignIn = () => {
         <div className='container sign-in'>
         <h1>Sign In</h1>
         <Link to='/signup' className='question'>Need an account?</Link>
+        <h3 style={{color:'#b85c5c'}}>{errorMessage}</h3>
         <form className='form'>
             <input 
             className='form-control' 
