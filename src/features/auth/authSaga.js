@@ -6,7 +6,7 @@ function* handleLoginSaga(action) {
     try {
         // cal api
         const res = yield call(API.login, action.payload)
-        console.log('1',res);
+        if(res)
         yield put(loginSuccess(res.user))
     
     } catch (error) {
@@ -26,6 +26,7 @@ function* handleRegisterSaga(action) {
     try {
         // cal api
         const res = yield call(API.register, action.payload)
+        if(res)
         yield put(registerSuccess(res.user))
     } catch (error) {
         console.log(error);
