@@ -1,21 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Link, useHistory } from 'react-router-dom';
-import { useDispatch} from 'react-redux'
-import { login } from '../../features/auth/authSlice';
+import { useDispatch,useSelector} from 'react-redux'
+import { login, resetState } from '../../features/auth/authSlice';
 
 const SignIn = () => {
+
+    const dispatch = useDispatch()
+    const history  = useHistory()
+    const isMiss = useSelector(state => state.auth.isMiss)
 
     const [prams, setPrams] = useState({
         email:'',
         password:'',
     })
+    useEffect(() => {
+        console.log(isMiss)
+        if(isMiss){
+            history.push('/user')
+        }
+        dispatch(resetState())
+    }, [isMiss])
  
-    const dispatch = useDispatch()
-    const history  = useHistory()
+   
 
     const handleSigIn = () => {
         dispatch(login({ user: prams }))
-        history.push('/user')
+        // if(isMiss === true){
+        //     history.push('/user')
+        // }
+
         
     }
     const handleChange = (event) =>{

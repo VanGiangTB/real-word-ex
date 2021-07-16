@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { Link,useHistory } from 'react-router-dom';
 import './style.css';
-import  { register} from '../../features/auth/authSlice';
+import  { register,resetState} from '../../features/auth/authSlice';
 import { useDispatch,useSelector } from 'react-redux';
 
 
@@ -9,7 +9,7 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const history  = useHistory()
 
-    const user = useSelector(state => state.auth.user)
+    const isAuth = useSelector(state => state.auth.isAuth)
 
     const [prams, setPrams] = useState({
         username:'',
@@ -17,13 +17,12 @@ const SignUp = () => {
         password:'',
     })
     
-    // useEffect(() => {
-    //     const token = localStorage.getItem('jwt');
-    //     console.log(token)
-    //     if(token){
-    //         history.push('/signin')
-    //     }
-    // }, [])
+    useEffect(() => {
+        if(isAuth){
+            history.push('/signin')
+        }
+        dispatch(resetState())
+    }, [isAuth])
 
     const [errorMessage, setErrorMessage] = useState('')
     const [errorUsername, setErrorUsername]= useState('')
@@ -32,18 +31,7 @@ const SignUp = () => {
 
     const handleSigUp = (e) => {
         dispatch(register({ user: prams }))
-        
-        const token = localStorage.getItem('jwt');
-        console.log(token)
-        if(token){
-            history.push('/signin')
-        }
-
-        // if(user){
-        //     console.log(user)
-        //     history.push('/signin')
-        // }
-        
+           
 
         e.preventDefault();
         if(prams.password.trim().length < 8 ){
@@ -58,6 +46,8 @@ const SignUp = () => {
             setErrorUsername('')
         }
     }
+    
+    
     const handleChange = (event) =>{
         const { name, value } = event.target;
         setPrams({ ...prams, [name]: value });
