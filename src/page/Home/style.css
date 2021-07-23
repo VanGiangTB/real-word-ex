@@ -15,3 +15,11 @@
 .home-header p{
     font-size: 3vh;
 }
+.home-body {
+    
+}
+.home-body .home-body-right{
+    width: 300px;
+    float: right;
+    margin-top: 20px;
+}

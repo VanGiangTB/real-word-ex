@@ -5,6 +5,7 @@ import createSagaMiddleware from "redux-saga"
 import rootSaga from './saga';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import homeSlice from '../features/home/homeSlice';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -16,7 +17,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   counter: counterReducer,
-  auth: authSlice
+  auth: authSlice,
+  home: homeSlice,
 }),
  
 persistedReducer = persistReducer(persistConfig, rootReducer)

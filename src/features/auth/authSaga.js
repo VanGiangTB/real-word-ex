@@ -41,6 +41,7 @@ function* handleGetuserInfoSaga(action) {
     }
 }
 
+
 export default function* authSaga() {
     
     yield takeLatest(login.toString(), handleLoginSaga)
