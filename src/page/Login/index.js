@@ -1,21 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Link, useHistory } from 'react-router-dom';
-import { useDispatch} from 'react-redux'
-import { login } from '../../features/auth/authSlice';
+import { useDispatch,useSelector} from 'react-redux'
+import { login, resetState } from '../../features/auth/authSlice';
 
 const SignIn = () => {
 
+    const dispatch = useDispatch()
+    const history  = useHistory()
+    const isMiss = useSelector(state => state.auth.isMiss)
+    const [errorMessage, setErrorMessage] = useState('')
     const [prams, setPrams] = useState({
         email:'',
         password:'',
     })
+    useEffect(() => {
+        console.log(isMiss)
+        if(isMiss){
+            history.push('/user')
+        }
+        dispatch(resetState())
+    }, [isMiss])
  
-    const dispatch = useDispatch()
-    const history  = useHistory()
+   
 
     const handleSigIn = () => {
         dispatch(login({ user: prams }))
-        history.push('/user')
+        // if(isMiss === true){
+        //     history.push('/user')
+        // }
+        if(isMiss === false){
+            setErrorMessage('Account not registered')
+        }else{
+            setErrorMessage('')
+        }
+
         
     }
     const handleChange = (event) =>{
@@ -27,6 +45,7 @@ const SignIn = () => {
         <div className='container sign-in'>
         <h1>Sign In</h1>
         <Link to='/signup' className='question'>Need an account?</Link>
+        <h3 style={{color:'#b85c5c'}}>{errorMessage}</h3>
         <form className='form'>
             <input 
             className='form-control' 

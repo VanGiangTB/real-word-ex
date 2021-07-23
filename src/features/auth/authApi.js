@@ -11,14 +11,14 @@ export default {
    getUserInfo: params => {
        return axiosInstance.get(`profiles/${params.id}`).then(res => res.data)
    },
-   upadteUser: params => {
-       return axiosInstance.put("profiles", params).then(res => res.data)
-   },
-   deleteUser: params => {
-       // has body request
-    //    return axiosInstance.delete("profiles", params).then(res => res.data)
+//    upadteUser: params => {
+//        return axiosInstance.put("profiles", params).then(res => res.data)
+//    },
+//    deleteUser: params => {
+//        // has body request
+//     //    return axiosInstance.delete("profiles", params).then(res => res.data)
 
-    //no body request
-    return axiosInstance.delete(`profiles/${params.id}`).then(res => res.data)
-   }
+//     //no body request
+//     return axiosInstance.delete(`profiles/${params.id}`).then(res => res.data)
+//    }
 }

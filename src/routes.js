@@ -27,7 +27,7 @@ export const routes = [
     {
         path: '/user',
         component: User,
-        name: 'User',
+
         exact:false,
 
     }

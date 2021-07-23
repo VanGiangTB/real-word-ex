@@ -1,25 +1,37 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState,useEffect } from 'react'
+import { Link,useHistory } from 'react-router-dom';
 import './style.css';
-import { register,signup} from '../../features/auth/authSlice';
-import { useDispatch } from 'react-redux';
+import  { register,resetState} from '../../features/auth/authSlice';
+import { useDispatch,useSelector } from 'react-redux';
+
 
 const SignUp = () => {
+    const dispatch = useDispatch()
+    const history  = useHistory()
+
+    const isAuth = useSelector(state => state.auth.isAuth)
 
     const [prams, setPrams] = useState({
         username:'',
         email:'',
         password:'',
     })
+    
+    useEffect(() => {
+        if(isAuth){
+            history.push('/signin')
+        }
+        dispatch(resetState())
+    }, [isAuth])
 
     const [errorMessage, setErrorMessage] = useState('')
     const [errorUsername, setErrorUsername]= useState('')
 
 
-    const dispatch = useDispatch()
 
     const handleSigUp = (e) => {
         dispatch(register({ user: prams }))
+           
 
         e.preventDefault();
         if(prams.password.trim().length < 8 ){
@@ -33,12 +45,15 @@ const SignUp = () => {
         }else{
             setErrorUsername('')
         }
-        // // debugger
     }
+    
+    
     const handleChange = (event) =>{
         const { name, value } = event.target;
         setPrams({ ...prams, [name]: value });
     }
+
+
 
     return (
         <div className='container sign-up'>

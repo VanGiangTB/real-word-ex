@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     user: null,
-    userInfo: null
+    userInfo: null,
+    isAuth: false,
+    isMiss: false
 }
 
 const authSlice = createSlice({
@@ -17,6 +19,7 @@ const authSlice = createSlice({
             state.user = actions.payload
             localStorage.setItem('jwt', actions.payload.token)
             localStorage.setItem('username', actions.payload.username)
+            state.isMiss = true
         },
         // signin(state,actions){
             
@@ -30,6 +33,11 @@ const authSlice = createSlice({
             state.user = actions.payload
             localStorage.setItem('jwt', actions.payload.token)
             localStorage.setItem('username', actions.payload.username)
+            state.isAuth = true
+        },
+        resetState(state,actions){
+            state.isAuth = false
+            state.isMiss = false
         },
         // signup(state,actions){
 
@@ -41,9 +49,13 @@ const authSlice = createSlice({
         getUserInfoSuccess(state, actions) {
             state.userInfo = actions.payload
         },
+        // getUserInfoFalse(state,actions){
+        //     state.isMiss = false
+        // }
+
 
      }
 })
 
-export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest } = authSlice.actions
+export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest,resetState,getUserInfoFalse } = authSlice.actions
 export default authSlice.reducer
