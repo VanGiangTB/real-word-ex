@@ -3,6 +3,8 @@ import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTags } from '../../features/home/homeSlice';
 import {Link, BrowserRouter,Switch,Route } from 'react-router-dom';
+import Global from './GlobalFeed/index'
+import YourFeed from './YourFeed/index'
 
 export default function Home() {
 
@@ -36,14 +38,14 @@ export default function Home() {
                 </div>
                 <div className = 'home-body-center'>
                 <BrowserRouter>
-                    <Link to='/home/article' style={{ marginRight: 10, color: 'black'}} className='header-link link'> My Article</Link>
-                    <Link to='/home/favorites' className='header-link link'> My favorites</Link>
+                    <Link to='/home/article' style={{ marginLeft: 50, color: 'black'}} className='header-link link'> Your Feed</Link>
+                    <Link to='/home/favorites' style={{ marginLeft: 50, color: 'black'}} className='header-link link'>  GlobalFeed</Link>
                     <Switch>
                         <Route path='/home/article'>
-                            My Article
+                            <Global />
                         </Route>
                         <Route path='/home/favorites'>
-                            favorites
+                            <YourFeed />
                         </Route>
                     </Switch>
                 </BrowserRouter>
