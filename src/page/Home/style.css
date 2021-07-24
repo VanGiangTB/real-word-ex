@@ -23,3 +23,18 @@
     float: right;
     margin-top: 20px;
 }
+
+.menu__list {
+    list-style: none;
+    display: flex;
+    border-bottom: 1px solid #aaa;
+}
+
+.menu__item {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.menu__item.active {
+    border-bottom: 2px solid #5cb85c;
+}

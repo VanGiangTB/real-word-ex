@@ -3,6 +3,7 @@ const initialState = {
     tags: null,
     yourFeed: null,
     globalFeed: null,
+    error: null
 }
 
 const homeSlice = createSlice({
@@ -21,11 +22,14 @@ const homeSlice = createSlice({
         yourFeedSuccess(state,actions){
             state.yourFeed = actions.payload
         },
-        getGlobalFeed(){
+        getGlobalFeed(state, payload){
 
         },
         globalFeedSuccess(state,actions){
             state.globalFeed = actions.payload
+        },
+        globalFeedFailed(state,actions){
+            state.error = actions.payload
         }
     },
 })
@@ -36,6 +40,7 @@ export const {
     getYourFeed,
     yourFeedSuccess,
     getGlobalFeed,
-    globalFeedSuccess
+    globalFeedSuccess,
+    globalFeedFailed
     } = homeSlice.actions
 export default homeSlice.reducer

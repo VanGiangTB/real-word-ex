@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { getYourFeed } from '../../../features/home/homeSlice'
+import { getGlobalFeed } from '../../../features/home/homeSlice'
 
 export default function GlobalFeed() {
 
-    const dispatch = useDispatch()
-    // lấy dữ liệu trong store
-    const yourFeed = useSelector(state => state.home.yourfeed)
+    // const dispatch = useDispatch()
+    // // lấy dữ liệu trong store
+    // const globalFeed = useSelector(state => state.home.globalFeed)
     
-    useEffect(() =>{
-        dispatch(getYourFeed)
-    },[])
+    // useEffect(() =>{
+    //     const params = {
+    //         limit: 10,
+    //         offset: 0
+    //     } 
+    //     dispatch(getGlobalFeed(params))
+    // },[dispatch])
     
     return (
         <div>
-            
+            global feed
         </div>
     )
 }
