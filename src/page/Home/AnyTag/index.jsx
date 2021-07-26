@@ -41,7 +41,7 @@ function AnyTag({tag}) {
             totalFeed ? (
                 <div>
                     {
-                        globalFeed.map((feed, idx) => (
+                        globalFeed.length > 0 && globalFeed.map((feed, idx) => (
                             <FeedItem key={idx} feed={feed} />
                         ))
                     }

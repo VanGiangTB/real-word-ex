@@ -44,13 +44,13 @@ export default function GlobalFeed() {
             totalFeed ? (
                 <div>
                     {
-                        globalFeed.map((feed, idx) => (
+                      globalFeed.length > 0 &&  globalFeed.map((feed, idx) => (
                             <FeedItem key={idx} feed={feed} />
                         ))
                     }
                     <Pagination count={totalPage} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
                 </div>
-            ) : (<div>No articles are here... yet.</div>)
+            ) : (<div >No articles are here... yet.</div>)
          }
         </div>
     )
