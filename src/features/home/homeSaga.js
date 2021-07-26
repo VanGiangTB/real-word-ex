@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import API from "./homeApi"
-import { tagsSuccess,yourFeedSuccess,globalFeedSuccess, globalFeedFailed } from "./homeSlice";
+import { tagsSuccess,yourFeedSuccess,globalFeedSuccess } from "./homeSlice";
 import { getTags,getYourFeed,getGlobalFeed } from "./homeSlice"
 
 function* handleGetTags() {
@@ -25,11 +25,11 @@ function* handleGetYourFeed(actions) {
 function* handleGetGlobalFeed(actions){
     try {
         // call api 
-        const res = yield call(API.globalFeed, actions.payload)
+        const res = yield call(API.golbalFeed, actions.payload)
         yield put(globalFeedSuccess(res.globalFeed)) 
     } catch (error) {
         console.log(error);
-        yield put(globalFeedFailed(error))
+        // yield put(globalFeedFailed(error))
     }
 }
 

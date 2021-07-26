@@ -22,15 +22,15 @@ const homeSlice = createSlice({
         yourFeedSuccess(state,actions){
             state.yourFeed = actions.payload
         },
-        getGlobalFeed(state, payload){
+        getGlobalFeed(){
 
         },
         globalFeedSuccess(state,actions){
             state.globalFeed = actions.payload
         },
-        globalFeedFailed(state,actions){
-            state.error = actions.payload
-        }
+        // globalFeedFailed(state,actions){
+        //     state.error = actions.payload
+        // }
     },
 })
 
