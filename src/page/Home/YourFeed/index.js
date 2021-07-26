@@ -5,7 +5,7 @@ import {getYourFeed} from '../../../features/home/homeSlice'
 export default function YourFeed() {
 
     const dispatch = useDispatch()
-    const yourFeed = useSelector
+    // const yourFeed = useSelector
 
     useEffect(() => {
         const params ={
