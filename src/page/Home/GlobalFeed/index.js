@@ -13,13 +13,13 @@ export default function GlobalFeed() {
     const [totalPage, setTotalPage] = useState(0)
     const [page, setPage] = useState(1)
     
-    useEffect(() =>{
-        const params = {
-            limit: 10,
-            offset: 0,
-        } 
-        dispatch(getGlobalFeed(params))
-    },[dispatch])
+    // useEffect(() =>{
+    //     const params = {
+    //         limit: 10,
+    //         offset: 0,
+    //     } 
+    //     dispatch(getGlobalFeed(params))
+    // },[dispatch])
 
     useEffect(() => {
        const total = Math.ceil(totalFeed / 10)

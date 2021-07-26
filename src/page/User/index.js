@@ -1,7 +1,8 @@
-import { styled } from '@material-ui/core'
+
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserInfoRequest } from '../../features/auth/authSlice'
+import {Link, useHistory } from 'react-router-dom';
 import './style.css'
 
 export default function User() {
@@ -26,7 +27,7 @@ export default function User() {
                 <h2>gmail: {email}</h2>
             </div>
             <div className="click">
-                <button className ='edit'>Edit Profile Settings</button>
+            <Link to='/setting' className=''><button className ='edit'>Edit Profile Settings</button></Link>  
             </div>
 
 

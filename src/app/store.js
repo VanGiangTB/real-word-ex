@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import authSlice from '../features/auth/authSlice';
 import createSagaMiddleware from "redux-saga"
 import rootSaga from './saga';
@@ -16,7 +15,6 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   auth: authSlice,
   home: homeSlice,
 }),

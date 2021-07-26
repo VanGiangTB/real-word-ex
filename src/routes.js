@@ -2,6 +2,8 @@ import Home from './page/Home';
 import SignIn from './page/Login';
 import SignUp from './page/Register';
 import User from './page/User';
+import Setting from './page/Setting';
+import NewPost from './page/NewPost';
 
 export const routes = [
     {
@@ -27,9 +29,19 @@ export const routes = [
     {
         path: '/user',
         component: User,
-
+        // name: 'user',
         exact:false,
 
+    },
+    {
+        path: '/setting',
+        component: Setting,
+        name: 'Setting',
+    },
+    {
+        path: '/newpost',
+        component: NewPost,
+        name: 'New Post',
     }
 
    

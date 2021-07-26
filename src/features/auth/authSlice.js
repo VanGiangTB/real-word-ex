@@ -48,9 +48,14 @@ const authSlice = createSlice({
         //     state.isMiss = false
         // }
 
+        logout(state) {
+            state.userInfo = null
+            localStorage.removeItem("jwt");
+        }
+
 
      }
 })
 
-export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest,resetState,getUserInfoFalse } = authSlice.actions
+export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest,resetState,getUserInfoFalse, logout } = authSlice.actions
 export default authSlice.reducer

@@ -14,7 +14,6 @@ const SignIn = () => {
         password:'',
     })
     useEffect(() => {
-        console.log(isMiss)
         if(isMiss){
             history.push('/user')
         }
@@ -25,15 +24,11 @@ const SignIn = () => {
 
     const handleSigIn = () => {
         dispatch(login({ user: prams }))
-        // if(isMiss === true){
-        //     history.push('/user')
-        // }
         if(isMiss === false){
             setErrorMessage('Account not registered')
         }else{
             setErrorMessage('')
         }
-
         
     }
     const handleChange = (event) =>{
@@ -43,29 +38,30 @@ const SignIn = () => {
 
     return (
         <div className='container sign-in'>
-        <h1>Sign In</h1>
-        <Link to='/signup' className='question'>Need an account?</Link>
-        <h3 style={{color:'#b85c5c'}}>{errorMessage}</h3>
-        <form className='form'>
-            <input 
-            className='form-control' 
-            placeholder="Email"  
-            name='email' 
-            onChange={handleChange} 
-            value={prams.email}
-            />
-            <input 
-            type='password' 
-            className='form-control'
-            name='password'  
-            placeholder="Password" 
-            onChange={handleChange} 
-            value={prams.password}
-            />
-            <div className='form-group'>
-             <button type='button' onClick={handleSigIn}>Sign In</button>
-            </div>
-        </form>
+            <h1>Sign In</h1>
+            <Link to='/signup' className='question'>Need an account?</Link>
+            <h3 style={{color:'#b85c5c'}}>{errorMessage}</h3>
+            <form className='form'>
+                <input 
+                className='form-control' 
+                placeholder="Email"  
+                name='email' 
+                onChange={handleChange} 
+                value={prams.email}
+                />
+                <input 
+                type='password' 
+                className='form-control'
+                name='password'  
+                placeholder="Password" 
+                onChange={handleChange} 
+                value={prams.password}
+                />
+                <div className='form-group'>
+                <button type='button' onClick={handleSigIn}>Sign In</button>
+                </div>
+            </form>
+            
         
     </div>
     )

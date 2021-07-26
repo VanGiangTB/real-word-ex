@@ -12,27 +12,27 @@ export default function YourFeed() {
     const totalFeed = useSelector(state => state.home.totalFeed)
     const [totalPage, setTotalPage] = useState(0)
     const [page, setPage] = useState(1)
-    console.log(yourFeed);
+
+    // useEffect(() => {
+    //     const params ={
+    //         limit: 10,
+    //         offset: 0
+    //     }
+    //    dispatch(getYourFeed(params))
+    // }, [dispatch])
+
+    const handleChange = (event, value) => {
+        setPage(value)
+    }
 
     useEffect(() => {
-        const params ={
-            limit: 10,
-            offset: 0
-        }
-       dispatch(getYourFeed(params))
-    }, [dispatch])
-
-    useEffect(() => {
+        console.log("page");
         const params = {
             limit: 10,
             offset: (page - 1) * 10,
         } 
         dispatch(getYourFeed(params))
-    }, [page])
-
-    const handleChange = (event, value) => {
-        setPage(value)
-    }
+    }, [page, dispatch])
 
     return (
         <div className = 'message'>

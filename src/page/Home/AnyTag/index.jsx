@@ -18,14 +18,23 @@ function AnyTag({tag}) {
     const [page, setPage] = useState(1)
     const [totalPage, setTotalPage] = useState(0)
         
-    useEffect(() =>{
+    // useEffect(() =>{
+    //     const params = {
+    //         limit: 10,
+    //         offset: 0,
+    //         tag: tag
+    //     } 
+    //     dispatch(getGlobalFeed(params))
+    // },[dispatch])
+
+    useEffect(() => {
         const params = {
             limit: 10,
-            offset: 0,
+            offset: (page - 1) * 10,
             tag: tag
         } 
         dispatch(getGlobalFeed(params))
-    },[dispatch])
+    }, [page])
 
     useEffect(() => {
         const total = Math.ceil(totalFeed / 10)

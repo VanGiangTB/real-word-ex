@@ -15,7 +15,9 @@ axiosInstance.interceptors.request.use(function (config) {
     // Do something before request is sent
     // add token in header
     const token= localStorage.getItem('jwt');
-    config.headers["authorization"] = `Token ${token}`
+    if (token) {
+      config.headers["authorization"] = `Token ${token}`
+    }
     return config;
   }, function (error) {
     // Do something with request error
