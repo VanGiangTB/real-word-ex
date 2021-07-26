@@ -1,46 +1,43 @@
-import { Pagination } from '@material-ui/lab'
-import React, { useEffect, useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect,useState} from 'react'
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector} from 'react-redux'
 import { getGlobalFeed } from '../../../features/home/homeSlice'
+import { Pagination } from '@material-ui/lab'
 import FeedItem from "../components/FeedItem"
 
-export default function GlobalFeed() {
+AnyTag.propTypes = {
+    tag: PropTypes.string,
+};
+
+
+function AnyTag({tag}) {
 
     const dispatch = useDispatch()
-    // lấy dữ liệu trong store
-    const globalFeed = useSelector(state => state.home.globalFeed)
     const totalFeed = useSelector(state => state.home.totalFeed)
-    const [totalPage, setTotalPage] = useState(0)
+    const globalFeed = useSelector(state => state.home.globalFeed)
     const [page, setPage] = useState(1)
-    
+    const [totalPage, setTotalPage] = useState(0)
+        
     useEffect(() =>{
         const params = {
             limit: 10,
             offset: 0,
+            tag: tag
         } 
         dispatch(getGlobalFeed(params))
     },[dispatch])
 
     useEffect(() => {
-       const total = Math.ceil(totalFeed / 10)
-       setTotalPage(total)
-    }, [totalFeed])
+        const total = Math.ceil(totalFeed / 10)
+        setTotalPage(total)
+     }, [totalFeed])
 
-    useEffect(() => {
-        const params = {
-            limit: 10,
-            offset: (page - 1) * 10,
-        } 
-        dispatch(getGlobalFeed(params))
-    }, [page])
-
-    const handleChange = (event, value) => {
+     const handleChange = (event, value) => {
         setPage(value)
     }
-    
     return (
         <div>
-         {
+            {
             totalFeed ? (
                 <div>
                     {
@@ -53,5 +50,7 @@ export default function GlobalFeed() {
             ) : (<div>No articles are here... yet.</div>)
          }
         </div>
-    )
+    );
 }
+
+export default AnyTag;

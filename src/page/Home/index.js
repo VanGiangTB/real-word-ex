@@ -6,6 +6,7 @@ import {Link, BrowserRouter,Switch,Route } from 'react-router-dom';
 import Global from './GlobalFeed/index'
 import YourFeed from './YourFeed/index'
 import { TAGS } from '../../constants';
+import AnyTag from './AnyTag';
 
 export default function Home() {
 
@@ -41,6 +42,25 @@ export default function Home() {
         setCurrentTag(value)
     }
 
+    const handleAddTag = (tag) => {
+        setCurrentTag(tag)
+
+        const newListTag = [...listTag]
+        const newTag = {
+            name: `#${tag}`,
+            value: tag
+        }
+        if (listTag.length === 2) {
+            // push 
+            newListTag.push(newTag)
+        } else {
+            // replace
+            newListTag[2] = newTag
+        }
+        setListTag(newListTag)
+
+    }
+
 
 
     return (
@@ -50,15 +70,7 @@ export default function Home() {
                 <p>A place to share your knowledge.</p>
             </div>
             <div className = 'home-body'>
-                <div className = 'home-body-right'>
-                    {
-                        tags && tags.map((el, index) => (
-                            <button key={index} className = 'porpular-tags'>
-                                {el}
-                            </button>
-                        ))
-                    }
-                </div>
+                
                 <div className = 'home-body-center'>
                     <ul className="menu__list">
                         {
@@ -68,7 +80,19 @@ export default function Home() {
                         }
                     </ul>
                     {
-                        currentTag === TAGS.YOUR_FEED ? (<YourFeed />) : (<Global />)
+                        // currentTag === TAGS.YOUR_FEED ? (<YourFeed />) : (<Global />)
+                        currentTag === TAGS.YOUR_FEED && <YourFeed /> ||
+                        currentTag === TAGS.GLOBAL_FEED && <Global /> ||
+                        <AnyTag tag={currentTag} />
+                    }
+                </div>
+                <div className = 'home-body-right'>
+                    {
+                        tags && tags.map((el, index) => (
+                            <button key={index} className = 'porpular-tags' onClick={() => handleAddTag(el)}>
+                                {el}
+                            </button>
+                        ))
                     }
                 </div>
             </div>

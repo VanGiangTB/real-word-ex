@@ -16,11 +16,11 @@
     font-size: 3vh;
 }
 .home-body {
-    
+    display: flex;
+    justify-content: space-between;
 }
 .home-body .home-body-right{
-    width: 300px;
-    float: right;
+    width: 30%;
     margin-top: 20px;
 }
 
@@ -37,4 +37,8 @@
 
 .menu__item.active {
     border-bottom: 2px solid #5cb85c;
+}
+
+.home-body-center {
+    width: 68%;
 }

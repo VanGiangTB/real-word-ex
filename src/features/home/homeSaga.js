@@ -17,7 +17,7 @@ function* handleGetYourFeed(actions) {
     try {
         // call api 
         const res = yield call(API.yourFeed, actions.payload)
-        yield put (yourFeedSuccess(res.yourFeed))
+        yield put (yourFeedSuccess(res))
     } catch (error) {
         console.log(error);
     }
@@ -25,8 +25,8 @@ function* handleGetYourFeed(actions) {
 function* handleGetGlobalFeed(actions){
     try {
         // call api 
-        const res = yield call(API.golbalFeed, actions.payload)
-        yield put(globalFeedSuccess(res.globalFeed)) 
+        const res = yield call(API.globalFeed, actions.payload)
+        yield put(globalFeedSuccess(res)) 
     } catch (error) {
         console.log(error);
         // yield put(globalFeedFailed(error))

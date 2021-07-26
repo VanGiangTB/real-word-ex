@@ -6,7 +6,7 @@ export default {
     yourFeed: (params) => {
         return axiosInstance.get(`articles/feed`,{params}).then(res => res.data)
     },
-    golbalFeed: (params) => {
+    globalFeed: (params) => {
         return axiosInstance.get(`articles`, {params}).then(res => res.data)
     },
 }

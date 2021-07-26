@@ -39,12 +39,7 @@ const authSlice = createSlice({
             state.isAuth = false
             state.isMiss = false
         },
-        // signup(state,actions){
-
-        // },
-        // signupSuccess(state,actions){
-        //     state.user = actions.payload
-        // },
+       
         getUserInfoRequest() {},
         getUserInfoSuccess(state, actions) {
             state.userInfo = actions.payload

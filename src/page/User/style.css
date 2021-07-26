@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+.main .profile{
+    width: 60%;
+}
+
+.main .click{
+    width: 30%;
+}
