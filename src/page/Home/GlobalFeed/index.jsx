@@ -1,5 +1,5 @@
 import { Pagination } from '@material-ui/lab'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGlobalFeed } from '../../../features/home/homeSlice'
 import FeedItem from "../components/FeedItem"

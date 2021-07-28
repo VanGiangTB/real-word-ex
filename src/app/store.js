@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import createSagaMiddleware from "redux-saga";
 import authSlice from '../features/auth/authSlice';
-import createSagaMiddleware from "redux-saga"
-import rootSaga from './saga';
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
 import homeSlice from '../features/home/homeSlice';
+import rootSaga from './saga';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -29,4 +29,5 @@ const store = configureStore({
 sagaMiddleware.run(rootSaga)
 
 export const persistor = persistStore(store)
-export {store}
+export { store };
+

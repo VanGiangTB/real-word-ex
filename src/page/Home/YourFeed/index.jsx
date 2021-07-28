@@ -1,8 +1,8 @@
-import React,{useEffect,useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {getYourFeed} from '../../../features/home/homeSlice'
-import FeedItem from "../components/FeedItem"
 import { Pagination } from '@material-ui/lab'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getYourFeed } from '../../../features/home/homeSlice'
+import FeedItem from "../components/FeedItem"
 
 
 export default function YourFeed() {

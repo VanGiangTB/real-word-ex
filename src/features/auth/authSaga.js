@@ -1,6 +1,6 @@
-import { call, put, takeLatest, takeEvery } from "redux-saga/effects";
-import { login,register, registerSuccess, loginSuccess, getUserInfoRequest, getUserInfoSuccess} from "./authSlice";
-import API from "./authApi"
+import { call, put, takeLatest } from "redux-saga/effects";
+import API from "./authApi";
+import { getUserInfoRequest, getUserInfoSuccess, login, loginSuccess, register, registerSuccess } from "./authSlice";
 
 function* handleLoginSaga(action) {
     try {
@@ -14,7 +14,7 @@ function* handleLoginSaga(action) {
     }
 }
 // function* handleSigninSaga() {
-//     try {
+//     try {S
 //         const res = yield call(API.signin)
 //         yield call(signinSuccess(res.user))
 //     } catch (error) {

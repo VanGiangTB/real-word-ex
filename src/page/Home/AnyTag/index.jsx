@@ -1,9 +1,9 @@
-import React, { useEffect,useState} from 'react'
+import { Pagination } from '@material-ui/lab';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector} from 'react-redux'
-import { getGlobalFeed } from '../../../features/home/homeSlice'
-import { Pagination } from '@material-ui/lab'
-import FeedItem from "../components/FeedItem"
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGlobalFeed } from '../../../features/home/homeSlice';
+import FeedItem from "../components/FeedItem";
 
 AnyTag.propTypes = {
     tag: PropTypes.string,

@@ -1,9 +1,9 @@
 import Home from './page/Home';
 import SignIn from './page/Login';
-import SignUp from './page/Register';
-import User from './page/User';
-import Setting from './page/Setting';
 import NewPost from './page/NewPost';
+import SignUp from './page/Register';
+import Setting from './page/Setting';
+import User from './page/User';
 
 export const routes = [
     {

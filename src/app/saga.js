@@ -1,5 +1,5 @@
 // import { isAllOf } from "@reduxjs/toolkit";
-import { all } from "redux-saga/effects"
+import { all } from "redux-saga/effects";
 import authSaga from "../features/auth/authSaga";
 import homeSaga from "../features/home/homeSaga";
 

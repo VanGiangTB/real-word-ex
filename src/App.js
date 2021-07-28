@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
-import Wrapper from './page/index';
-import SignIn from './page/Login';
-// import Home from './component/home';
+import React from 'react';
 import './App.css';
+import Wrapper from './page';
+
 
 function App() {
   return (

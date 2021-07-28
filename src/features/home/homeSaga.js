@@ -1,7 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import API from "./homeApi"
-import { tagsSuccess,yourFeedSuccess,globalFeedSuccess } from "./homeSlice";
-import { getTags,getYourFeed,getGlobalFeed } from "./homeSlice"
+import API from "./homeApi";
+import { getGlobalFeed, getTags, getYourFeed, globalFeedSuccess, tagsSuccess, yourFeedSuccess } from "./homeSlice";
 
 function* handleGetTags() {
     try {

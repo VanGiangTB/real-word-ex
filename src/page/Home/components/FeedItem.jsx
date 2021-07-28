@@ -1,6 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import "./FeedItem.css"
+import React from 'react';
+import "./FeedItem.css";
 
 FeedItem.propTypes = {
     feed: PropTypes.object
@@ -8,7 +8,7 @@ FeedItem.propTypes = {
 
 function FeedItem({feed}) {
     return (
-        <div className="feed-item">
+        <div className="feed-item mb-8">
             <div className="header">
                 <div className="left">
                     <div className="image">

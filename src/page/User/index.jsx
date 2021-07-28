@@ -1,9 +1,9 @@
 
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserInfoRequest } from '../../features/auth/authSlice'
-import {Link, useHistory } from 'react-router-dom';
-import './style.css'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getUserInfoRequest } from '../../features/auth/authSlice';
+import './style.css';
 
 export default function User() {
     const dispatch = useDispatch()
