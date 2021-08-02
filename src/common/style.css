@@ -3,5 +3,5 @@
     @apply flex justify-between items-center;
 }
 .navbar-menu .navbar-link{
-    @apply pl-4 text-gray-300 hover:text-gray-600 font-thin; 
+    @apply pl-4 text-gray-300 hover:text-gray-600 font-thin ; 
 }

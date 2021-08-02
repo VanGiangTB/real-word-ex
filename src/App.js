@@ -5,7 +5,10 @@ import Wrapper from './page';
 
 function App() {
   return (
-   <Wrapper />
+    <div className='px-6'>
+      <Wrapper />
+    </div>
+   
   );
 }
 

@@ -12,28 +12,31 @@ export default function User() {
         const username = localStorage.getItem("username")
         dispatch(getUserInfoRequest({id: username}))
     }, [])
-
-    // useEffect(() => {
-    //     effect
-    //     return () => {
-    //         cleanup
-    //     }
-    // }, [input])
    
     return (
-        <div className='main'>
-            <div className="profile">
-                <h2>username: {username}</h2>
-                <h2>gmail: {email}</h2>
+        <div>
+            <div className='main bg-gray-100 h-52 min-w-full '>
+                <div className="profile items-center text-center flex flex-col  ">
+                    <img src='' className='border-gray-700 img border pt-4 mb-4' />
+                    <h2>{username}</h2>
+                    {/* <h2>gmail: {email}</h2> */}
+                </div>  
+                <div className='text-right pr-10'>
+                    <Link to='/setting' className=''>
+                        <button 
+                            type='submit' 
+                            className =
+                            'edit rounded-md border text-gray-500 border-gray-500 text-xs py-2 px-5'
+                            >
+                                Edit Profile Settings
+                        </button>
+                    </Link>  
+                </div>
             </div>
             <div className="click">
-            <Link to='/setting' className=''><button className ='edit'>Edit Profile Settings</button></Link>  
-            </div>
-
-
-         
-
-            
+                <h2>body</h2>
+            </div> 
         </div>
+        
     )
 }

@@ -1,8 +1,5 @@
-.main{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 70px;
-    margin-top: 50px;
+/* .main{
+    padding-left: -24px;
 }
 .main .profile{
     width: 60%;
@@ -10,4 +7,11 @@
 
 .main .click{
     width: 30%;
+} */
+.main{
+    margin: 6px -24px;
+}
+.img{
+    width: 100px;
+    height: 100px;
 }

@@ -31,8 +31,8 @@ export default function NavBar() {
                     </>
                 ) : (
                     <>
-                        <Link  to='/setting' className='navbar-link' >Setting</Link>
                         <Link  to='/newpost' className='navbar-link' >New Post</Link>
+                        <Link  to='/setting' className='navbar-link' >Setting</Link>
                         <Link  to='/user' className='navbar-link' >User</Link>
                     </>
                 )
