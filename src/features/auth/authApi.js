@@ -11,6 +11,9 @@ export default {
    getUserInfo: params => {
        return axiosInstance.get(`profiles/${params.id}`).then(res => res.data)
    },
+   putUserInfo:params => {
+       return axiosInstance.put(`user`,params).then(res => res.data)
+   }
 //    upadteUser: params => {
 //        return axiosInstance.put("profiles", params).then(res => res.data)
 //    },

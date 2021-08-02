@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://conduit.productionready.io/api/',
+    baseURL: 'https://conduit-api-realworld.herokuapp.com/api/',
     timeout: 600000,
     headers: {
         Accept: "application/json",

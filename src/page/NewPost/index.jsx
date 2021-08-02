@@ -1,10 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./style.css";
 
 export default function NewPost() {
+
+  const history = useHistory()
+
+  const handleOnSubmit = () => {
+    const title = "abc"
+    history.push(`/post/${title}`)
+  }
+
   return (
     <div className="flex justify-center items-center">
-      <form className="w-1/2 mt-6">
+      <form onSubmit={handleOnSubmit} className="w-1/2 mt-6">
         <input
           type="text"
           className="input-field"

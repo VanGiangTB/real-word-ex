@@ -1,6 +1,7 @@
 import Home from './page/Home';
 import SignIn from './page/Login';
 import NewPost from './page/NewPost';
+import PostDetail from './page/PostDetail';
 import SignUp from './page/Register';
 import Setting from './page/Setting';
 import User from './page/User';
@@ -42,6 +43,11 @@ export const routes = [
         path: '/newpost',
         component: NewPost,
         name: 'New Post',
+    },
+    {
+        path: "/post/:id",
+        component: PostDetail,
+        name: "Post detail"
     }
 
    
