@@ -4,7 +4,10 @@ const initialState = {
     yourFeed: null,
     globalFeed: null,
     error: null,
-    totalFeed: 0
+    totalFeed: 0,
+    titlePost:null,
+    commentPost:null,
+    user:null,
 }
 
 const homeSlice = createSlice({
@@ -31,6 +34,27 @@ const homeSlice = createSlice({
             state.globalFeed = actions.payload.articles
             state.totalFeed = actions.payload.articlesCount
         },
+        createPost(){
+
+        },
+        getTitlePost(){
+
+        },
+        getTitlePostSuccess(state,actions){
+            state.titlePost = actions.payload
+        },
+        getCommentPost(){
+
+        },
+        getCommentPostSuccess(state,actions){
+            state.commentPost= actions.payload
+        },
+        getUserPost(){},
+        getUserPostSuccess(state,action){
+            state.user = action.payload
+        },
+        getDetail(state, action) {}
+
         // globalFeedFailed(state,actions){
         //     state.error = actions.payload
         // }
@@ -44,6 +68,14 @@ export const {
     yourFeedSuccess,
     getGlobalFeed,
     globalFeedSuccess,
-    globalFeedFailed
+    globalFeedFailed,
+    createPost,
+    getTitlePost,
+    getTitlePostSuccess,
+    getCommentPost,
+    getCommentPostSuccess,
+    getDetail,
+    getUserPost,
+    getUserPostSuccess,
     } = homeSlice.actions
 export default homeSlice.reducer

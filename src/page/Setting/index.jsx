@@ -109,7 +109,6 @@ export default function Setting() {
         </div>
         <div className=" border-b-2 mt-5 "></div>
 
-      </form>
         <div className="mt-6">
           <button
             type="submit"
@@ -119,6 +118,9 @@ export default function Setting() {
             or click here to logout
           </button>
         </div>
+
+      </form>
+       
     </div>
   );
 }

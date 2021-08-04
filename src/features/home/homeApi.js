@@ -9,4 +9,17 @@ export default {
     globalFeed: (params) => {
         return axiosInstance.get(`articles`, {params}).then(res => res.data)
     },
+    createPost: (params) => {
+        return axiosInstance.post(`articles`,params).then(res => res.data)
+    },
+    getTitlePost: (params) => {
+        return axiosInstance.get(`articles/${params.title}`).then(res => res.data)
+    },
+    getCommentPost: (params) => {
+        return axiosInstance.get(`articles/${params.title}/comments`).then(res => res.data)
+    },
+    getUserPost: (params) => {
+        return axiosInstance.get(`user`).then(res => res.data)
+    }
+
 }
