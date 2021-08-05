@@ -16,14 +16,14 @@
 .home-header p{
     font-size: 3vh;
 }
-.home-body {
+/* .home-body {
     display: flex;
     justify-content: space-between;
 }
 .home-body .home-body-right{
     width: 30%;
     margin-top: 20px;
-}
+} */
 
 .menu__list {
     list-style: none;

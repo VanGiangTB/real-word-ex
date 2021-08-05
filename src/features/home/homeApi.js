@@ -20,6 +20,9 @@ export default {
     },
     getUserPost: (params) => {
         return axiosInstance.get(`user`).then(res => res.data)
+    },
+    deleteUserPost: (params) => {
+        return axiosInstance.delete(`articles/${params.title}`).then(res => res.data)
     }
 
 }

@@ -53,7 +53,11 @@ const homeSlice = createSlice({
         getUserPostSuccess(state,action){
             state.user = action.payload
         },
-        getDetail(state, action) {}
+        getDetail(state, action) {},
+        deleteUserPost(){},
+        deleteUserPostSuccess(state,action){
+            state.user = action.payload
+        }
 
         // globalFeedFailed(state,actions){
         //     state.error = actions.payload
@@ -77,5 +81,7 @@ export const {
     getDetail,
     getUserPost,
     getUserPostSuccess,
+    deleteUserPost,
+    deleteUserPostSuccess
     } = homeSlice.actions
 export default homeSlice.reducer

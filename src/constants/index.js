@@ -2,3 +2,7 @@ export const TAGS = {
     YOUR_FEED: "YOUR_FEED",
     GLOBAL_FEED: "GLOBAL_FEED"
 }
+export const TAGUSER = {
+    MY_ARTICLE: "MY_ARTICLE",
+    FAVORITE_ARTICLE: "FAVORITE_ARTICLE"
+}

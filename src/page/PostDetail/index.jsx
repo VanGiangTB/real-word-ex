@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import { getDetail } from '../../features/home/homeSlice';
+import { deleteUserPost, getDetail } from '../../features/home/homeSlice';
 import './style.css'
 
 PostDetail.propTypes = {
@@ -12,6 +12,7 @@ PostDetail.propTypes = {
 function PostDetail() {
 
     const dispatch = useDispatch()
+    const history = useHistory();
     const match = useRouteMatch()
     const post = useSelector(state => state.home.titlePost)
     const user = useSelector(state => state.home.user)
@@ -20,6 +21,12 @@ function PostDetail() {
         const title = match.params.id
         dispatch(getDetail({ title }))
     },[])
+    
+    const handleDelete = () => {
+        const title = match.params.id
+        dispatch(deleteUserPost({ title }));
+        history.push("/")
+    }
 
 
 
@@ -48,6 +55,7 @@ function PostDetail() {
                             Edit Article
                         </button>
                         <button 
+                        onClick={handleDelete}
                         type="submit" 
                         className='border-primary border text-primary rounded-md text-sm py-1 px-3 hover:bg-primary-hover hover:text-white'
                         >

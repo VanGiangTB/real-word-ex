@@ -13,7 +13,11 @@ export default {
    },
    putUserInfo:params => {
        return axiosInstance.put(`user`,params).then(res => res.data)
+   },
+   getMyArticle:params => {
+       return axiosInstance.get(`articles`,{params}).then(res => res.data)
    }
+
 //    upadteUser: params => {
 //        return axiosInstance.put("profiles", params).then(res => res.data)
 //    },

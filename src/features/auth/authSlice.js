@@ -4,7 +4,9 @@ const initialState = {
     user: null,
     userInfo: null,
     isAuth: false,
-    isMiss: false
+    isMiss: false,
+    myArticle:null,
+    totalFeed:0,
 }
 
 const authSlice = createSlice({
@@ -52,11 +54,31 @@ const authSlice = createSlice({
             state.userInfo = null
             localStorage.removeItem("jwt");
         },
-        putUserInfo(){}
+        putUserInfo(){},
+        getMyArticle(){},
+        getMyArticleSuccess(state,actions){
+            state.myArticle = actions.payload.articles
+            state.totalFeed = actions.payload.articlesCount
+        }
+
 
 
      }
 })
 
-export const { login, register, registerSuccess, loginSuccess, getUserInfoSuccess, getUserInfoRequest,resetState,getUserInfoFalse, logout,putUserInfo } = authSlice.actions
+export const { 
+        login,
+        register,
+         registerSuccess, 
+         loginSuccess, 
+         getUserInfoSuccess, 
+         getUserInfoRequest,
+         resetState,
+         getUserInfoFalse, 
+         logout,
+         putUserInfo,
+         getMyArticle, 
+        getMyArticleSuccess,
+
+        } = authSlice.actions
 export default authSlice.reducer

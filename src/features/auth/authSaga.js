@@ -1,6 +1,15 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import API from "./authApi";
-import { getUserInfoRequest, getUserInfoSuccess, login, loginSuccess, register, registerSuccess,putUserInfo } from "./authSlice";
+import { getUserInfoRequest,
+         getUserInfoSuccess,
+        login, 
+        loginSuccess, 
+        register, 
+        registerSuccess,
+        putUserInfo, 
+        getMyArticleSuccess,
+        getMyArticle, 
+        } from "./authSlice";
 
 function* handleLoginSaga(action) {
     try {
@@ -48,6 +57,14 @@ function* handlePutInfoSaga(action) {
         
     }
 }
+function* handleGetMyArticle(action){
+    try {
+        const res = yield call(API.getMyArticle,action.payload)
+        yield put(getMyArticleSuccess(res))
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 export default function* authSaga() {
@@ -57,4 +74,5 @@ export default function* authSaga() {
     yield takeLatest(getUserInfoRequest.toString(), handleGetuserInfoSaga)
     yield takeLatest(putUserInfo.toString(),handlePutInfoSaga)
     // yield takeLatest(signup.toString(), handleSignupSaga)
+    yield takeLatest(getMyArticle.toString(),handleGetMyArticle)
 }

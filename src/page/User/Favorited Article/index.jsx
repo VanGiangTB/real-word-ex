@@ -1,15 +1,16 @@
 import { Pagination } from '@material-ui/lab'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getYourFeed } from '../../../features/home/homeSlice'
-import FeedItem from "../components/FeedItem"
+import {getMyArticle} from '../../../features/auth/authSlice'
+import FeedItem from "../../Home/components/FeedItem"
 
 
-export default function YourFeed() {
+export default function FavoriteArticle() {
 
     const dispatch = useDispatch()
-    const yourFeed = useSelector(state => state.home.yourFeed)
-    const totalFeed = useSelector(state => state.home.totalFeed)
+    const myArticle = useSelector(state => state.auth.myArticle)
+    const totalFeed = useSelector(state => state.auth.totalFeed)
+    const author = useSelector(state => state.auth.user)
     const [totalPage, setTotalPage] = useState(0)
     const [page, setPage] = useState(1)
 
@@ -26,19 +27,19 @@ export default function YourFeed() {
     }
 
     useEffect(() => {
-        console.log("page");
         const params = {
-            limit: 10,
+            favorited:`${author.username}`,
+            limit: 5,
             offset: (page - 1) * 10,
         } 
-        dispatch(getYourFeed(params))
+        dispatch(getMyArticle(params))
     }, [page, dispatch])
 
     return (
         <div>
         {
-           yourFeed && yourFeed.length > 0 ? (
-               yourFeed && yourFeed.length > 0 &&  yourFeed.map((feed, idx) => (
+           myArticle && myArticle.length > 0 ? (
+               myArticle && myArticle.length > 0 &&  myArticle.map((feed, idx) => (
                    <FeedItem key={idx} feed={feed} />
                ))
            ) : (<div >No articles are here... yet.</div>)

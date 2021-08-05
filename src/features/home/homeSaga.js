@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import API from "./homeApi";
-import { getGlobalFeed, getTags, getYourFeed, globalFeedSuccess, tagsSuccess, yourFeedSuccess,createPost, getTitlePostSuccess, getTitlePost, getCommentPostSuccess, getCommentPost, getDetail, getUserPostSuccess } from "./homeSlice";
+import { getGlobalFeed, getTags, getYourFeed, globalFeedSuccess, tagsSuccess, yourFeedSuccess,createPost, getTitlePostSuccess, getTitlePost, getCommentPostSuccess, getCommentPost, getDetail, getUserPostSuccess, deleteUserPostSuccess, deleteUserPost } from "./homeSlice";
 
 function* handleGetTags() {
     try {
@@ -71,6 +71,14 @@ function* handleGetDetail(action) {
         call(handleGetUserPost,action.payload)
     ])
 }
+function* handleDeleteUserPost(action){
+    try {
+        const res = yield call(API.deleteUserPost,action.payload)
+        yield put(deleteUserPostSuccess(res))
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export default function* homeSaga() {
     yield takeLatest(getTags().type, handleGetTags)
@@ -80,4 +88,5 @@ export default function* homeSaga() {
     // yield takeLatest(getTitlePost.toString(),handleGetTitlePost)
     // yield takeLatest(getCommentPost.toString(),handleGetCommentPost)
     yield takeLatest(getDetail().type, handleGetDetail)
+    yield takeLatest(deleteUserPost.toString(),handleDeleteUserPost)
 }
